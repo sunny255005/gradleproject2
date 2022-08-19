@@ -9,36 +9,18 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '8'
 
 
-apply plugin: 'maven-publish'
 
-    publishing {
 
-    publications {
-
-    maven(MavenPublication) {
-
-    artifact("build/libs/gradleproject2-$version"+".jar") {
-
-    extension "jar"
-
-    }}}
-
-    repositories {
-
+repositories {
     maven {
+        url 'http://localhost:8081/repository/FirstNexus'
 
-    name 'nexus'
-
-    url "http://localhost:8081/repository/FirstNexus/"
-
-    credentials {
-
-    username "admin"
-
-    password "admin"
-
-    }}}}
-
+        credentials {
+            username = 'admin'
+            password = 'admin'
+        }
+    }
+}
 
 
 
