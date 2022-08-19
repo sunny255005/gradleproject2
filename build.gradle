@@ -23,3 +23,36 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+
+]
+
+apply plugin: ‘maven-publish’
+
+    publishing {
+
+    publications {
+
+    maven(MavenPublication) {
+
+    artifact(“build/libs/gradleproject2-$version”+”.jar”) {
+
+    extension ‘jar’
+
+    }}}
+
+    repositories {
+
+    maven {
+
+    name ‘nexus’
+
+    url “http://localhost:8081/repository/emni/"
+
+    credentials {
+
+    username project.repoUser
+
+    password project.repoPassword
+
+    }}}}
