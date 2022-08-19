@@ -33,9 +33,9 @@ apply plugin: 'maven-publish'
 
     credentials {
 
-    username gradleproject2.repoUser
+    username 'admin'
 
-    password gradleproject2.repoPassword
+    password 'admin'
 
     }}}}
 
