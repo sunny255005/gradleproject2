@@ -29,13 +29,13 @@ apply plugin: 'maven-publish'
 
     name 'nexus'
 
-    url "http://localhost:8081/repository/emni/"
+    url "http://localhost:8081/repository/FirstNexus/"
 
     credentials {
 
-    username 'admin'
+    username "admin"
 
-    password 'admin'
+    password "admin"
 
     }}}}
 
