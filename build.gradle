@@ -2,6 +2,8 @@ plugins {
 	id 'org.springframework.boot' version '2.6.11'
 	id 'io.spring.dependency-management' version '1.0.13.RELEASE'
 	id 'java'
+	id 'jacoco'
+    	id "org.sonarqube" version "3.4.0.2513"
 }
 
 group = 'com.example'
@@ -27,6 +29,26 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+bootRun {
+    // support passing -Dkey=value to bootRun task
+    systemProperties = System.properties
+   // systemProperty "spring.profiles.active", "diarization"
+}
+
+jacoco {
+    toolVersion = "0.8.5"
+    reportsDirectory = file("$buildDir/jacoco")
+}
+
+test {
+    useJUnitPlatform()
+    testLogging.showStandardStreams=true
+    finalizedBy jacocoTestReport
+}
+jacocoTestReport {
+    dependsOn test
 }
 
 
