@@ -50,19 +50,20 @@ test {
 jacocoTestReport {
     dependsOn test
 }
-apply plugin: 'jacoco'
-
 jacocoTestCoverageVerification {
     violationRules {
         rule {
             limit {
-                minimum = 0.7
+                counter = 'LINE'
+                minimum = 0.87
+            }
+            limit {
+                counter = 'BRANCH'
+                minimum = 0.80
             }
         }
     }
 }
 
-// to run coverage verification during the build (and fail when appropriate)
-check.dependsOn jacocoTestCoverageVerification
 
 
